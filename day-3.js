@@ -13,7 +13,7 @@ function firstPart() {
     }
     return parseBinary(gammaRate) * parseBinary(epsilon)
 }
-//Returns 693486*
+//Returns 693486
 
 function part2() {
     var dataBis = data
@@ -39,6 +39,10 @@ function part2() {
 }
 //Returns [ '111000100110', '001110100101', 3379326 ]
 
+/**
+ * @param {string} bin A binary number in the form of a string (eg. "1110010")
+ * @returns {Number} The bin number in base 10 (int)
+ */
 function parseBinary(bin) {
     let result = 0
     bin.split("").reverse().forEach((bit, pow) => {
@@ -47,11 +51,13 @@ function parseBinary(bin) {
     return result
 }
 
+/**
+ * @param {String[]|Number[]} arr An array of 1 or 0
+ * @returns {Number} 1 or 0, depending on the most common number in the array
+ */
 function getOccurences(arr) {
     //This function was quite unoptimized, it took 125ms each time, the new one only takes .3ms
     //let array = arr.sort((a,b) => arr.filter(v => v===a).length - arr.filter(v => v===b).length)
     let sum = arr.reduce((partial_sum, a) => parseInt(partial_sum) + parseInt(a), 0)
     return sum >= arr.length / 2 ? 1 : 0
 }
-
-console.log(part2())

@@ -41,5 +41,3 @@ function part2() {
     return [position, position.reduce((a, b)=> a*b, 1)]
 }
 //Returns [ [ 2011, 727910 ], 1463827010 ]
-
-console.log(part2())

@@ -27,6 +27,10 @@ function part2() {
 }
 //Returns 1248
 
+/**
+ * @param {Number} start The start depth (int)
+ * @returns {Number|0} The sum of the two measurements after the start and the start value.
+ */
 function sum(start) {
     if (data[start + 2] != undefined) {
         return data[start] + data[start + 1] + data[start + 2]
@@ -34,5 +38,3 @@ function sum(start) {
         return 0
     }
 }
-
-console.log(part2())
