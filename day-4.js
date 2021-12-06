@@ -97,7 +97,6 @@ function part2() {
 }
 //Returns 6256 (final number was 46, sum 136)
 
-
 /**
  * @param {Boolean[][]} arr A matrix of which number has been picked or not
  * @returns {Boolean} If the arr has won or not
