@@ -5,6 +5,8 @@ function parseData() {
     let pickedNumbers = ogData.split("\n\n")[0].split(",").map(x => Number(x))
     let tables = ogData.split("\n\n")
     tables.shift()
+
+    //[REGEX EXPLANATION] /[0-9]+/gm : matches any positive number of consecutives characters between 0 and 9
     tables = tables.map(x => x.split("\n").map(y => y.match(/[0-9]+/gm).map(z => Number(z))))
     /**
      * @type {Object}

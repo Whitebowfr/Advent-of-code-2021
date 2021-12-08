@@ -4,6 +4,8 @@ function firstPart() {
     let gammaRate = ""
     let epsilon = ""
     for (let index = 0; index < 12; index++) {
+
+        //[REGEX EXPLANATION] /(?:[0-1]){3}([0-1])(?:[0-1])*/gm : matches any character between 0 and 1 in the 4th position
         var regex = `(?:[0-1]){${index}}([0-1])(?:[0-1])*`
         var reg = new RegExp(regex, "gm")
         var datab = [...data.matchAll(reg)].map(x => x[1])
@@ -18,12 +20,16 @@ function firstPart() {
 function part2() {
     var dataBis = data
     for (let index = 0; index < 12; index++) {
+
+        //[REGEX EXPLANATION] /(?:[0-1]){3}([0-1])(?:[0-1])*/gm : matches any character between 0 and 1 in the 4th position
         var regex = `(?:[0-1]){${index}}([0-1])(?:[0-1])*`
         var reg = new RegExp(regex, "gm")
         var datab = [...dataBis.matchAll(reg)].map(x => x[1])
         let leastCommon = Math.abs(getOccurences(datab) - 1)
         var datac = [...data.matchAll(reg)].map(x => x[1])
         let common = getOccurences(datac)
+
+        //[REGEX EXPLANATION] /[0-1]*(?<=^...)0[0-1]*/gm : matches three times any character between 0 and 1, then a 0, then any number of characters between 0 and 1
         let filteringRegexScrub = new RegExp(`[0-1]*(?<=^${".".repeat(index)})${leastCommon}[0-1]*`, "gm")
         let filteringRegexOxGen = new RegExp(`[0-1]*(?<=^${".".repeat(index)})${common}[0-1]*`, "gm")
 
