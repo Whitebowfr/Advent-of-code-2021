@@ -13,7 +13,7 @@ function part(isPartOne) {
     });
     return finalResult
 }
-//Returns 5585 if isPartOne is true, else 17193
+// Returns 5585 if isPartOne is true, else 17193
 
 /**
  * Draws the line on the map
@@ -29,7 +29,7 @@ function fillLine(start, end, one) {
     let x2 = end[0]
     let y2 = end[1]
 
-    //Checks if the lines are only vertical, only horizontal or one is true
+    // Checks if the lines are only vertical, only horizontal or one is true
     if ((x1 == x2 || y1 == y2) || !one) {
        
 
@@ -39,12 +39,12 @@ function fillLine(start, end, one) {
                 returnResult++
             }
 
-            //Clamping the values so they only increase/decrease by one in the direction of the end point
+            // Clamping the values so they only increase/decrease by one in the direction of the end point
             x1 += clamp(x2 - x1, -1, 1)
             y1 += clamp(y2 - y1, -1, 1)
         }
 
-        //The start point isn't added by the while loop
+        // The start point isn't added by the while loop
         if (x1 == x2 && y1 == y2) {
             map[y1][x1] += 1
             if (map[y1][x1] == 2) {
