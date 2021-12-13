@@ -5,7 +5,7 @@ function firstPart() {
     let epsilon = ""
     for (let index = 0; index < 12; index++) {
 
-        //[REGEX EXPLANATION] /(?:[0-1]){3}([0-1])(?:[0-1])*/gm : matches any character between 0 and 1 in the 4th position
+        // [REGEX EXPLANATION] /(?:[0-1]){3}([0-1])(?:[0-1])*/gm : matches any character between 0 and 1 in the 4th position
         var regex = `(?:[0-1]){${index}}([0-1])(?:[0-1])*`
         var reg = new RegExp(regex, "gm")
         var datab = [...data.matchAll(reg)].map(x => x[1])
@@ -15,13 +15,13 @@ function firstPart() {
     }
     return parseBinary(gammaRate) * parseBinary(epsilon)
 }
-//Returns 693486
+// Returns 693486
 
 function part2() {
     var dataBis = data
     for (let index = 0; index < 12; index++) {
 
-        //[REGEX EXPLANATION] /(?:[0-1]){3}([0-1])(?:[0-1])*/gm : matches any character between 0 and 1 in the 4th position
+        // [REGEX EXPLANATION] /(?:[0-1]){3}([0-1])(?:[0-1])*/gm : matches any character between 0 and 1 in the 4th position
         var regex = `(?:[0-1]){${index}}([0-1])(?:[0-1])*`
         var reg = new RegExp(regex, "gm")
         var datab = [...dataBis.matchAll(reg)].map(x => x[1])
@@ -29,7 +29,7 @@ function part2() {
         var datac = [...data.matchAll(reg)].map(x => x[1])
         let common = getOccurences(datac)
 
-        //[REGEX EXPLANATION] /[0-1]*(?<=^...)0[0-1]*/gm : matches three times any character between 0 and 1, then a 0, then any number of characters between 0 and 1
+        // [REGEX EXPLANATION] /[0-1]*(?<=^...)0[0-1]*/gm : matches three times any character between 0 and 1, then a 0, then any number of characters between 0 and 1
         let filteringRegexScrub = new RegExp(`[0-1]*(?<=^${".".repeat(index)})${leastCommon}[0-1]*`, "gm")
         let filteringRegexOxGen = new RegExp(`[0-1]*(?<=^${".".repeat(index)})${common}[0-1]*`, "gm")
 
@@ -43,7 +43,7 @@ function part2() {
 
     return [dataBis, data, parseBinary(dataBis) * parseBinary(data)]
 }
-//Returns [ '111000100110', '001110100101', 3379326 ]
+// Returns [ '111000100110', '001110100101', 3379326 ]
 
 /**
  * @param {string} bin A binary number in the form of a string (eg. "1110010")
@@ -62,8 +62,8 @@ function parseBinary(bin) {
  * @returns {Number} 1 or 0, depending on the most common number in the array
  */
 function getOccurences(arr) {
-    //This function was quite unoptimized, it took 125ms each time, the new one only takes .3ms
-    //let array = arr.sort((a,b) => arr.filter(v => v===a).length - arr.filter(v => v===b).length)
+    // This function (which was the one I used) was quite unoptimized, it took 125ms each time, the new one only takes .3ms :
+    // let array = arr.sort((a,b) => arr.filter(v => v===a).length - arr.filter(v => v===b).length)
     let sum = arr.reduce((partial_sum, a) => parseInt(partial_sum) + parseInt(a), 0)
     return sum >= arr.length / 2 ? 1 : 0
 }

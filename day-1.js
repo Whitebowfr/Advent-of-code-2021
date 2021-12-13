@@ -14,7 +14,7 @@ function part1() {
     });
     return result
 }
-//Returns 1298
+// Returns 1298
 
 function part2() {
     var result = 0
@@ -25,7 +25,7 @@ function part2() {
     });
     return result
 }
-//Returns 1248
+// Returns 1248
 
 /**
  * @param {Number} start The start depth (int)

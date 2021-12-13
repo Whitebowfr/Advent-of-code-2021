@@ -3,7 +3,7 @@ var data = require("./data").days.seven
 data = data.split(",").map(x => Number(x))
 
 function part1() {
-    //Using this instead of .sort() because it doesn't sort correctly in JS
+    // Using this instead of .sort() because it doesn't sort correctly in JS
     data = data.sort((a, b) => a - b)
 
     let median = getMedian(data)
@@ -17,7 +17,7 @@ function part1() {
 
     return fuelConsumed
 }
-//Returns 340052, the crabs were at position 329
+// Returns 340052, the crabs were at position 329
 
 function part2() {
 
@@ -30,7 +30,7 @@ function part2() {
 
     return fuelConsumed
 }
-//Returns 92948968, all the crabs grouped at the position 466
+// Returns 92948968, all the crabs grouped at the position 466
 
 /**
  * @param {Number[]} arr An array containing the numbers we want to know the median of (int or float)
@@ -59,7 +59,7 @@ function getAvg(arr) {
  * @returns {Number} (int)
  */
 function getPartition(num) {
-    //Little trick I found while testing, helps a lot with optimization
-    //I would have gone for a loop and memoization if I didn't find this
+    // Little trick I found while testing, helps a lot with optimization
+    // I would have gone for a loop and memoization if I didn't find this
     return num * (num / 2 + 0.5)
 }

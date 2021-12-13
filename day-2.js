@@ -4,7 +4,7 @@ function part1() {
     var position = [0, 0]
     data.forEach(instruction => {
 
-        //[REGEX EXPLANATION] /[A-z]+|[0-9]+/gm matches any consecutive string of any character between either A and z or 0 and 9
+        // [REGEX EXPLANATION] /[A-z]+|[0-9]+/gm matches any consecutive string of any character between either A and z or 0 and 9
         let parsed = instruction.match(/[A-z]+|[0-9]+/gm)
         switch (parsed[0]) {
             case "forward":
@@ -20,14 +20,14 @@ function part1() {
     });
     return position
 }
-//Returns [ 2011, 738 ]
+// Returns [ 2011, 738 ]
 
 function part2() {
     var position = [0, 0]
     var aim = 0
     data.forEach(instr => {
 
-        //[REGEX EXPLANATION] /[A-z]+|[0-9]+/gm matches any consecutive string of any character between either A and z or 0 and 9
+        // [REGEX EXPLANATION] /[A-z]+|[0-9]+/gm matches any consecutive string of any character between either A and z or 0 and 9
         let parsed = instr.match(/[A-z]+|[0-9]+/gm)
         switch (parsed[0]) {
             case "forward":
@@ -44,4 +44,4 @@ function part2() {
     });
     return [position, position.reduce((a, b)=> a*b, 1)]
 }
-//Returns [ [ 2011, 727910 ], 1463827010 ]
+// Returns [ [ 2011, 727910 ], 1463827010 ]
